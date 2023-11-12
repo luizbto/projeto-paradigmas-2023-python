@@ -36,7 +36,6 @@
 
  .left-login-image {
      width: 35vw;
-     margin-bottom: 30px;
  }
 
  .right-login {
@@ -64,7 +63,7 @@
  .card-login>h1 {
      color: #000;
      font-weight: 800;
-  
+     margin: 0;
 
  }
 
@@ -75,7 +74,6 @@
      align-items: flex-start;
      justify-content: center;
      margin: 10px 0px;
-     
  }
 
  .textfield>input {
@@ -108,27 +106,16 @@
      color: #f0ffff94;
  }
 
- /*.form-button{
-    width: 100%;
-    padding: 16px 0px;
-    margin: 25px;
-    border: none;
-    border-radius: 8px;
-    outline: none;
-}
-*/
-
  .btn-login {
      width: 100%;
      font: 'NotoSans', sans-serif;
      padding: 10px 40px;
-     /* margin: 25px; */
+     margin: 15px;
      border: none;
      border-radius: 8px;
      outline: none;
      text-transform: uppercase;
      font-weight: 500px;
-     margin-top: 30px;
      color: #ffffff;
      cursor: pointer;
      background: #000;
