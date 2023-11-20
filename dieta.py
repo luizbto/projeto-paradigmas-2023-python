@@ -55,7 +55,7 @@ def login():
         cur.close()
         conexao.close() 
 
-def obter_imc(obter_imc2):
+def obter_imc():
    altura = float(input("Digite sua altura: "))
    peso = float(input("Digite seu peso: "))
    imc = peso / (altura * altura)
@@ -93,25 +93,32 @@ def obter_dieta(tipo_dieta):
             print(dieta)
         conexao.close()
 
-if __name__ == "__main__":
-    print('Escolha qual o tipo de dieta você gostaria de obter:')
-    print('1. Dieta para emagrecer \n'
-          '2. Dieta para ganho de massa \n'
-          '3. Dieta para se alimentar melhor\n'
-          '4. Consultar IMC\n'
-          '5. Fazer login\n'  
-          '6. Realizar Cadastro\n'
-          '7. Sair')
-    
-    n_dieta = input()
 
-    if (n_dieta == "4"): 
-        obter_imc(n_dieta)
-    elif(n_dieta == "5"):
-        login()
-    elif(n_dieta == "6"):
-        insert_bd()
-    else: 
-        obter_dieta(n_dieta)
+while True:
+    if __name__ == "__main__":
+        print('Seja Bem-Vindo a Nutri_Dev. Escolha a opção que Deseja')
+        print('1. Dieta para emagrecer \n'
+            '2. Dieta para ganho de massa \n'
+            '3. Dieta para se alimentar melhor\n'
+            '4. Consultar IMC\n'
+            '5. Fazer login\n'  
+            '6. Realizar Cadastro\n'
+            '7. Sair do Sistema'
+            )
+        option = input()
+        if (option == "4"): 
+            obter_imc()
+        elif(option == "5"):
+            login()
+        elif(option == "6"):
+            insert_bd()
+        elif(option == "7"):
+            print("Saindo do sistema")
+            break
+        else: 
+            obter_dieta(option)
+        
+
+print("Sistema encerrado.")
 
     
