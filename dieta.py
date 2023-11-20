@@ -115,8 +115,11 @@ while True:
         elif(option == "7"):
             print("Saindo do sistema")
             break
-        else: 
+        elif option in ["1", "2", "3"]:
             obter_dieta(option)
+            continuar = input("Deseja continuar? (SIM ou NAO) ")
+            if continuar != "SIM":
+                break
         
 
 print("Sistema encerrado.")
