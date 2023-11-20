@@ -108,10 +108,19 @@ while True:
         option = input()
         if (option == "4"): 
             obter_imc()
+            continuar = input("Deseja continuar? (SIM ou NAO) ")
+            if continuar != "SIM":
+                break
         elif(option == "5"):
             login()
+            continuar = input("Deseja continuar? (SIM ou NAO) ")
+            if continuar != "SIM":
+                break
         elif(option == "6"):
             insert_bd()
+            continuar = input("Deseja continuar? (SIM ou NAO) ")
+            if continuar != "SIM":
+                break
         elif(option == "7"):
             print("Saindo do sistema")
             break
