@@ -50,7 +50,7 @@ def login():
             conexao.close()
             break  
         else:
-            print("Credenciais inválidas. Tente novamente.")
+            print("Nome de Usuário ou Senha incorreta. Tente novamente.")
 
         cur.close()
         conexao.close() 
