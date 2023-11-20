@@ -108,25 +108,25 @@ while True:
         option = input()
         if (option == "4"): 
             obter_imc()
-            continuar = input("Deseja continuar? (SIM ou NAO) ")
+            continuar = input("Deseja continuar? (SIM ou NAO) ").upper()
             if continuar != "SIM":
                 break
         elif(option == "5"):
             login()
-            continuar = input("Deseja continuar? (SIM ou NAO) ")
+            continuar = input("Deseja continuar? (SIM ou NAO) ").upper()
             if continuar != "SIM":
                 break
         elif(option == "6"):
             insert_bd()
-            continuar = input("Deseja continuar? (SIM ou NAO) ")
+            continuar = input("Deseja continuar? (SIM ou NAO) ").upper()
             if continuar != "SIM":
                 break
         elif(option == "7"):
-            print("Saindo do sistema")
+            print("Saindo do sistema!")
             break
         elif option in ["1", "2", "3"]:
             obter_dieta(option)
-            continuar = input("Deseja continuar? (SIM ou NAO) ")
+            continuar = input("Deseja continuar? (SIM ou NAO) ").upper()
             if continuar != "SIM":
                 break
         
