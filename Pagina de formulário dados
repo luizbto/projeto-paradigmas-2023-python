@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="stylee.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seja Bem vindo</title>
+</head>
+<body>
+    <main class="principal">
+
+        <form class="formulario" action="/cadastro" method="POST">
+            <p>Email</p>
+            <input type="email" name="email" class="form1">
+            <p>Usuário</p>
+            <input type="text" name="username" class="form1"> 
+            <p>Senha</p>
+            <input type="password" name="password" class="form1">
+            <p>Nome</p>
+            <input type="text" name="nome" class="form1">
+            <p>Idade</p>
+            <input type="text" name="idade" class="form1">
+            <p>Altura</p> 
+            <input type="text" name="Altura" class="form1">
+            <p>Peso</p>
+            <input type="text" name="peso" class="form1">
+            <div class="opcao">
+                Sexo:
+                <p><input type="radio" name="sexo" value="M"> Masculino</p>
+                <p><input type="radio" name="sexo" value="F"> Feminino</p>
+            </div>
+            
+            <div class="textfield">
+                <button class="btn-login" type="submit">Enviar</button>
+            </div>
+
+        </form>
+       <img src="frutas.png" alt= alt="Image" height="500" width="602">
+    </main>
+    <footer>
+      <div class="rodape">
+        <img src="./imgs/instagram 5.png" alt="">        
+      </div>
+      <h2>TODOS OS DIREITOS RESERVADOS | ©️ NUTRI_DEV 2023 </h2>
+    </footer>
+</body>
+</html>
