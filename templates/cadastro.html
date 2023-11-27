@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../static/cadastro.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seja Bem vindo</title>
+</head>
+<body>
+    <main class="principal">
+
+       <form class="formulario"  action="/cadastro" method="POST">
+      <h3>Email</h3>
+        <input type="email" name="email" class="form1">
+      <h3>Usuário</h3>
+        <input type="text" name="username" class="form1"> 
+      <h3>Senha</h3>
+        <input type="password" name="password" class="form1">
+      <h3>Nome</h3>
+        <input type="text" name="nome" class="form1">
+      <h3>Idade</h3>
+        <input type="text" name="idade" class="form1">
+      <h3>Altura</h3>
+        <input type="text" name="altura" class="form1">
+      <h3>Peso</h3>
+        <input type="text" name="peso" class="form1">
+     <div class="opcao">
+        <h3>Sexo</h3>
+        <input type="radio" name="sexo" value="M">Masculino
+        <input type="radio" name="sexo" value="F">Feminino
+     </div>
+     <div class="textfield">
+        <button class="btn-login" type="submit">Cadastrar</button>
+    </div>
+    <div class="loginhook">
+        <h3>Já tem login?<a href="{{ url_for('login') }}"> Faça login aqui!</a></h3>
+    </div>
+       </form>
+       <img src="../static/frutas.png" alt="imagem de fundo">
+    </main>
+    <footer>
+      <h3>TODOS OS DIREITOS RESERVADOS | © NUTRI_DEV 2023 </h3>
+    </footer>
+</body>
+</html>

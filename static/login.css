@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap');
+
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'NotoSans', sans-serif;
+}
+
+.main-login {
+    width: 100vw;
+    height: 100vh;
+    background: #efebe3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.left-login {
+    font-family: 'NotoSans', sans-serif;
+    width: 70vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.left-login>h1 {
+    width: 50vw;
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #2a332f;
+}
+
+
+.right-login {
+    width: 50vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+}
+
+.card-login {
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 30px 35px;
+    background: #efebe3;
+    border-radius: 20px;
+    box-shadow: 0px 10px 40px #00000056;
+
+}
+
+.card-login>h1 {
+    color: #000;
+    font-weight: 800;
+ 
+
+}
+
+.textfield {
+    margin: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0px;
+    
+}
+
+.textfield>input {
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    padding: 15px;
+    background: #514869;
+    color: #f0ffffde;
+    font-size: 12pt;
+    box-shadow: 0px 10px 40px #00000056;
+    outline: none;
+    box-sizing: border-box;
+    text-align: center;
+
+}
+
+.textfield>label {
+    color: white;
+    margin: 10px;
+
+
+}
+
+.textfield>label {
+    color: #000;
+    margin-bottom: 10px;
+}
+
+.textfield>input::placeholder {
+    color: #f0ffff94;
+}
+
+.form-button{
+   width: 100%;
+   margin: 25px;
+   border: none;
+   border-radius: 8px;
+   outline: none;
+}
+
+
+.btn-login {
+    width: 100%;
+    font: 'NotoSans', sans-serif;
+    padding: 10px 40px;
+    margin: 25px; 
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    text-transform: uppercase;
+    font-weight: 500px;
+    margin-top: 30px;
+    color: #ffffff;
+    cursor: pointer;
+    background: #000;
+    box-shadow: 0px 10px 40px -12px #00000056;
+}
+
+.btn-login:hover {
+    background-color: #00af5d;
+}
+.flaskmessage {
+    font-weight: 700;
+    color: red;
+    padding: 10px;
+}

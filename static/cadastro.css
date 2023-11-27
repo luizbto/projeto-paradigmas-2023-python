@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap');
+
+/* aplica para todos */
+*{
+    padding: 0px;
+    margin:0px;
+    font-family: 'Inter', sans-serif;
+}
+
+/* formulario e imagem */
+.principal{
+    display: flex;
+    padding: 78px;
+    justify-content: center;
+    background-color: #EFEBE3;
+}
+
+
+.formulario{
+    border: 2px solid darkgreen;
+    text-align: center;
+    background: linear-gradient(#4DA768,#209851);
+    padding: 20px;
+    width: 20%;
+    height: 40%;
+    border-radius: 4px;
+}
+
+.formulario input {
+    text-align: center;
+    font-weight: 1000;
+    border-radius: 5px;
+    padding: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.form1 {
+    width: 90%;
+}
+.principal img{
+    border-radius: 5px;
+    width: 40%;
+}
+.opcao h3 {
+text-align: center;
+margin-bottom: 20px;
+}
+.opcao{
+    margin-top: 20px;
+    font-weight: 900;
+}
+
+.btn-login {
+    width: 80%;
+    font: 'NotoSans', sans-serif;
+    padding: 10px 40px;
+    margin: 15px;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    text-transform: uppercase;
+    font-weight: 500px;
+    color: #ffffff;
+    cursor: pointer;
+    background: #0c4222;
+    box-shadow: 0px 10px 40px -12px #00000056;
+}
+
+.btn-login:hover {
+    background-color: #00af5d;
+}
+
+
+footer{
+background-color: #EFEBE3;
+}
+
+
+footer h2{
+    color: #000;
+    font-size: 21px;
+}
+
+.loginhook{
+padding-top: 20px;
+}
+.loginhook a{
+    text-decoration: none;
+    color: rgb(104, 61, 61);
+}
