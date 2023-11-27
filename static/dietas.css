@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap');
+
+/* aplica para todos */
+*{
+    padding: 0px;
+    margin:0px;
+    font-family: 'Inter', sans-serif;
+}
+
+
+/* links para as paginas */
+header{
+    background: linear-gradient(#4DA768,#209851);
+   padding: 25px;
+}
+ 
+
+
+.lista{
+    display: flex;
+    list-style: none;
+    justify-content: space-around;
+   
+}
+.lista a{
+    text-decoration: none;
+    margin-left: 70px;
+    font-weight: 900;
+    color: #000;
+}
+.pags{
+    display: flex;
+    
+}
+
+
+/* formulario e imagem */
+.principal{
+    display: flex;
+    padding: 100px;
+    justify-content: center;
+    background-color: #EFEBE3;
+}
+.opcao p {
+margin-bottom: 20px;
+}
+
+.opcao2 p {
+    margin-bottom: 24px;
+    text-align: center;
+    margin-top: 30px;
+}
+.opcao2 input{
+    margin-left: 40PX;
+}
+.formulario{
+    background: linear-gradient(#4DA768,#209851);
+padding: 20px;
+width: 20%;
+border-radius: 4px;
+}
+.formulario input {
+    border-radius: 5px;
+     padding: 4px;
+    margin-top: 7px;
+    margin-bottom: 7px;
+}
+.form1 {
+    width: 90%;
+}
+.principal img{
+    border-radius: 4px;
+}
+.opcao p {
+text-align: center;
+}
+.opcao{
+    margin-top: 20px;
+}
+.opcao input{
+    margin-left: 50px;
+}
+/* rodape */
+footer{
+background-color: #EFEBE3;
+display: flex;
+justify-content: space-around;
+margin: 0px;
+padding: 22px;
+
+}
+
+footer img{
+   margin-left: 89%;
+   margin-top: 30px;
+}
+
+footer h2{
+    color: #000;
+    font-size: 16px;
+    margin-top: 120px;
+}
+
+.rodape{
+    margin-top: 70px;
+    margin-bottom: 0px;
+}

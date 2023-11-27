@@ -59,7 +59,7 @@ def login():
             mensagem = f"Login bem-sucedido! Bem-vindo, {nome_do_usuario}!"
             cur.close()
             conexao.close()
-            return render_template('sobre.html', mensagem=mensagem)  
+            return render_template('dietas.html', mensagem=mensagem)  
         else:
             mensagem = "Usuário ou Senha incorreta. Tente novamente."
             return render_template('login.html', mensagem=mensagem) 
