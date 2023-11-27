@@ -7,84 +7,78 @@
     font-family: 'Inter', sans-serif;
 }
 
+
+/* links para as paginas */
+header{
+    background: linear-gradient(#4DA768,#209851);
+   padding: 25px;
+}
+ 
+
+
+.lista{
+    display: flex;
+    list-style: none;
+    justify-content: space-around;
+   
+}
+.lista a{
+    text-decoration: none;
+    margin-left: 70px;
+    font-weight: 900;
+    color: #000;
+}
+.pags{
+    display: flex;
+    
+}
+
+
 /* formulario e imagem */
 .principal{
+    text-align: center;
     display: flex;
-    padding: 78px;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 100px;
     background-color: #EFEBE3;
 }
-
-
-.formulario{
-    border: 2px solid darkgreen;
-    text-align: center;
-    background: linear-gradient(#4DA768,#209851);
-    padding: 20px;
-    width: 20%;
-    height: 40%;
-    border-radius: 4px;
+.dev-container {
+    padding-top: 35px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
 }
-
-.formulario input {
-    text-align: center;
-    font-weight: 1000;
-    border-radius: 5px;
-    padding: 5px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+.dev-img {
+    width: 150px;
+    height: 150px;
 }
-.form1 {
-    width: 90%;
-}
-.principal img{
-    border-radius: 5px;
-    width: 40%;
-}
-.opcao h3 {
-text-align: center;
-margin-bottom: 20px;
-}
-.opcao{
-    margin-top: 20px;
+.dev-container a{
     font-weight: 900;
-}
-
-.btn-login {
-    width: 80%;
-    font: 'NotoSans', sans-serif;
-    padding: 10px 40px;
-    margin: 15px;
-    border: none;
-    border-radius: 8px;
-    outline: none;
-    text-transform: uppercase;
-    font-weight: 500px;
-    color: #ffffff;
-    cursor: pointer;
-    background: #0c4222;
-    box-shadow: 0px 10px 40px -12px #00000056;
-}
-
-.btn-login:hover {
-    background-color: #00af5d;
+    font-family: 'Inter', sans-serif;
+    color: black;
+    text-decoration: none;
 }
 
 
 footer{
 background-color: #EFEBE3;
+display: flex;
+justify-content: space-around;
+padding: 20px;
+
 }
 
 
 footer h2{
     color: #000;
-    font-size: 21px;
+    font-size: 16px;
 }
 
-.loginhook{
-padding-top: 20px;
-}
-.loginhook a{
-    text-decoration: none;
-    color: rgb(104, 61, 61);
-}
+
+ .text-content p {
+    margin-bottom: 50px; /* Ajuste o valor conforme necessário */
+ }
+ .text-content h3{
+    margin-bottom: 80px; /* Ajuste o valor conforme necessário */
+ }
