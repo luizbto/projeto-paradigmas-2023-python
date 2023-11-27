@@ -1,7 +1,7 @@
 # projeto-paradigmas-2023-python
 Projeto Paradigmas de Linguagens de Programação em Python
 
- O objetivo deste projeto é criar uma plataforma em Python e inserir os dados no banco de dados PostgreSQL. O propósito deste projeto é disponibilizar uma ferramenta de baixa complexidade que auxilie os usuários a iniciar seu planejamento de dieta com foco em objetivos de fitness fundamentais.
+ O objetivo deste projeto é criar uma plataforma WEB em Python com FLASK e inserir os dados no banco de dados PostgreSQL. O propósito deste projeto é disponibilizar uma ferramenta de baixa complexidade que auxilie os usuários a iniciar seu planejamento de dieta com foco em objetivos de fitness fundamentais.
 
  # Armazenamento de Dados: 
  Armazenar todos os dados que contém as informações  nutricionais
