@@ -1,9 +1,6 @@
 import psycopg2
 import pandas as pd
-<<<<<<< HEAD
 from flask import Flask, render_template, request
-=======
->>>>>>> 0005641a72c806c3b7417cdd01d4fd106affdfa4
 
 def conectar_banco():
     conexao = psycopg2.connect(
@@ -14,7 +11,6 @@ def conectar_banco():
         port="5432"
     )
     return conexao
-<<<<<<< HEAD
 
 app = Flask(__name__)
 @app.route('/cadastro', methods=['GET', 'POST'])
@@ -54,65 +50,22 @@ def login():
 
         usuario = request.form.get("username")
         senha_hash = request.form.get("senha")
-=======
-def insert_bd():
-
-    conexao = conectar_banco()
-    email = input("Digite o seu email: ")
-    usuario = input("Digite o nome de usuário: ")
-    senha_hash = input("Digite a sua senha: ")
-    nome = input("Digite o seu nome: ")
-    idade = input("Digite sua idade: ")
-    peso = input("Digite o seu peso (ex: 62.5): ")
-    sexo = input("Sexo (F ou M): ")
-
-    cur = conexao.cursor()
-
-    cur.execute("INSERT INTO cliente (email, usuario, senha_hash, nome, idade, peso, sexo) VALUES (%s, %s, %s, %s, %s, %s, %s );", (email, usuario, senha_hash, nome, idade, peso, sexo))
-
-    conexao.commit()
-    cur.close()
-    conexao.close()
-
-    print("Dados inseridos com sucesso!")
-
-def login():
-    
-    while True: 
-        conexao = conectar_banco()
-        cur = conexao.cursor()
-
-        usuario = input("Digite o nome de usuário: ")
-        senha_hash = input("Digite a senha: ")
->>>>>>> 0005641a72c806c3b7417cdd01d4fd106affdfa4
 
         cur.execute("SELECT nome FROM cliente WHERE usuario = %s AND senha_hash = %s;", (usuario, senha_hash))
         resultado = cur.fetchone()
 
         if resultado:
             nome_do_usuario = resultado[0]
-<<<<<<< HEAD
             mensagem = f"Login bem-sucedido! Bem-vindo, {nome_do_usuario}!"
             cur.close()
             conexao.close()
-            return render_template('sucesso.html', mensagem=mensagem)  
+            return render_template('sobre.html', mensagem=mensagem)  
         else:
             mensagem = "Usuário ou Senha incorreta. Tente novamente."
             return render_template('login.html', mensagem=mensagem) 
 
     return render_template('login.html')
 
-=======
-            print(f"Login bem-sucedido! Bem-vindo, {nome_do_usuario}!")
-            cur.close()
-            conexao.close()
-            break  
-        else:
-            print("Nome de Usuário ou Senha incorreta. Tente novamente.")
-
-        cur.close()
-        conexao.close() 
->>>>>>> 0005641a72c806c3b7417cdd01d4fd106affdfa4
 
 def obter_imc():
    altura = float(input("Digite sua altura: "))
@@ -155,10 +108,7 @@ def obter_dieta(tipo_dieta):
 
 while True:
     if __name__ == "__main__":
-<<<<<<< HEAD
         app.run(debug=True)
-=======
->>>>>>> 0005641a72c806c3b7417cdd01d4fd106affdfa4
         print('Seja Bem-Vindo a Nutri_Dev. Escolha a opção que Deseja')
         print('1. Dieta para emagrecer \n'
             '2. Dieta para ganho de massa \n'
@@ -194,10 +144,4 @@ while True:
                 break
         
 
-<<<<<<< HEAD
 print("Sistema encerrado.")
-=======
-print("Sistema encerrado.")
-
-    
->>>>>>> 0005641a72c806c3b7417cdd01d4fd106affdfa4

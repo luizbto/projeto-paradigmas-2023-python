@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap');
+
+*{
+    padding: 0px;
+    margin:0px;
+    font-family: 'Inter', sans-serif;
+}
+
+
+header{
+    background: linear-gradient(#4DA768,#209851);
+    padding: 25px;
+}
+ 
+
+
+.lista{
+    display: flex;
+    list-style: none;
+    justify-content: space-around;
+   
+}
+.lista a{
+    text-decoration: none;
+    margin-left: 70px;
+    font-weight: 900;
+    color: #000;
+}
+.pags{
+    display: flex;
+    
+}
+
+
+/* formulario e imagem */
+.principal{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 100px;
+    background-color: #EFEBE3;
+}
+.dev-container {
+    padding-top: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+.dev-img {
+    width: 150px;
+    height: 150px;
+}
+.dev-container a{
+    font-weight: 900;
+    font-family: 'Inter', sans-serif;
+    color: black;
+    text-decoration: none;
+}
+
+
+footer{
+background-color: #EFEBE3;
+display: flex;
+justify-content: space-around;
+margin: 0px;
+padding: 22px;
+
+}
+
+footer img{
+   margin-left: 89%;
+   margin-top: 30px;
+}
+
+footer h2{
+    color: #000;
+    font-size: 16px;
+    margin-top: 120px;
+}
+
+.text-content {
+    margin: 8px 0;
+ }
+ .text-content p {
+    margin-bottom: 50px; 
+ }
+ .text-content h3{
+    margin-bottom: 80px; 
+ }
