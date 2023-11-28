@@ -1,6 +1,7 @@
 import psycopg2
 import pandas as pd
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, session, redirect, url_for
+import os
 
 def conectar_banco():
     conexao = psycopg2.connect(
@@ -13,6 +14,7 @@ def conectar_banco():
     return conexao
 
 app = Flask(__name__)
+app.secret_key = 'ProgramPython'
 @app.route('/cadastro', methods=['GET', 'POST'])
 def insert_bd():
     if request.method == 'POST': 
@@ -26,10 +28,11 @@ def insert_bd():
         idade = request.form.get("idade")
         peso = request.form.get("peso")
         sexo = request.form.get("sexo")
+        altura = request.form.get("altura")
 
         
 
-        cur.execute("INSERT INTO cliente (email, usuario, senha_hash, nome, idade, peso, sexo) VALUES (%s, %s, %s, %s, %s, %s, %s );", (email, usuario, senha_hash, nome, idade, peso, sexo))
+        cur.execute("INSERT INTO cliente (email, usuario, senha_hash, nome, idade, peso, sexo, altura) VALUES (%s, %s, %s, %s, %s, %s, %s, %s );", (email, usuario, senha_hash, nome, idade, peso, sexo, altura))
 
         conexao.commit()
         cur.close()
@@ -55,18 +58,52 @@ def login():
         resultado = cur.fetchone()
 
         if resultado:
-            nome_do_usuario = resultado[0]
-            mensagem = f"Login bem-sucedido! Bem-vindo, {nome_do_usuario}!"
+            session['logged_in'] = True  # Definir a sessão como logada
+            session['username'] = usuario  # Armazenar o nome de usuário na sessão
             cur.close()
             conexao.close()
-            return render_template('dietas.html', mensagem=mensagem)  
+            return redirect(url_for('perfil'))  # Redirecionar para a página de perfil
         else:
             mensagem = "Usuário ou Senha incorreta. Tente novamente."
-            return render_template('login.html', mensagem=mensagem) 
+            return render_template('login.html', mensagem=mensagem)
 
     return render_template('login.html')
 
+def obter_dados_do_usuario(username):
+    conexao = conectar_banco()
+    cur = conexao.cursor()
 
+    cur.execute("SELECT nome, idade, peso, altura, sexo FROM cliente WHERE usuario = %s;", (username,))
+    resultado = cur.fetchone()
+
+    cur.close()
+    conexao.close()
+
+    if resultado:
+        dados_usuario = {
+            'nome': resultado[0],
+            'idade': resultado[1],
+            'peso': resultado[2],
+            'altura': resultado[3],
+            'sexo': resultado[4]
+        }
+        return dados_usuario
+    else:
+        return None
+
+@app.route('/perfil')
+def perfil():
+    if 'logged_in' in session:
+        username = session['username']
+        dados_usuario = obter_dados_do_usuario(username)  # Obter os dados do usuário logado
+
+        if dados_usuario:
+            return render_template('perfil.html', dados_usuario=dados_usuario)
+        else:
+            return "Usuário não encontrado no banco de dados"  # Tratamento de erro, caso necessário
+    else:
+        return redirect(url_for('login'))
+    
 def obter_imc():
    altura = float(input("Digite sua altura: "))
    peso = float(input("Digite seu peso: "))

@@ -19,7 +19,8 @@ header{
 .lista{
     display: flex;
     list-style: none;
-    justify-content: space-around;
+    justify-content: flex-end;
+    padding-right: 100px;
    
 }
 .lista a{
@@ -105,3 +106,4 @@ footer h2{
     margin-top: 70px;
     margin-bottom: 0px;
 }
+
