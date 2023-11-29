@@ -104,6 +104,38 @@ def perfil():
     else:
         return redirect(url_for('login'))
     
+@app.route('/atualizar_perfil', methods=['POST'])
+def atualizar_perfil():
+    if 'logged_in' in session:
+        conexao = conectar_banco()
+        cur = conexao.cursor()
+    
+        username = session['username']
+        dados_usuario = obter_dados_do_usuario(username)
+        campo_atualizar = request.form.get("campo_atualizar")
+        novo_valor = request.form.get("novo_valor")
+
+        
+        if campo_atualizar in ['nome', 'idade', 'peso', 'altura', 'sexo']:
+            cur.execute(f"UPDATE cliente SET {campo_atualizar} = %s WHERE usuario = %s;",
+                        (novo_valor, username))
+            conexao.commit()
+
+            cur.close()
+            conexao.close()
+        if 'dados_usuario' in session:
+                session['dados_usuario'][campo_atualizar] = novo_valor
+
+        return redirect(url_for('perfil'))
+    else:
+        return redirect(url_for('login'))
+    
+
+@app.route('/sobre')
+def sobre():
+    return render_template('sobre.html')
+
+@app.route('/imc')    
 def obter_imc():
    altura = float(input("Digite sua altura: "))
    peso = float(input("Digite seu peso: "))

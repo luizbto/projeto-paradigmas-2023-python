@@ -19,7 +19,8 @@ header{
 .lista{
     display: flex;
     list-style: none;
-    justify-content: space-around;
+    justify-content: flex-end;
+    padding-right: 100px;
    
 }
 .lista a{
@@ -34,7 +35,6 @@ header{
 }
 
 
-/* formulario e imagem */
 .principal{
     text-align: center;
     display: flex;
@@ -62,15 +62,13 @@ header{
 
 
 footer{
-background-color: #EFEBE3;
-display: flex;
-justify-content: space-around;
-margin: 0px;
-padding: 10px;
-
+    background-color: #EFEBE3;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px; 
 }
-
-
+    
+    
 footer h2{
     color: #000;
     font-size: 16px;
