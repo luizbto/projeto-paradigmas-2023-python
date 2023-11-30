@@ -108,5 +108,19 @@ footer h2{
     margin-bottom: 80px; /* Ajuste o valor conforme necessário */
  }
 
+ /* o que foi mudado */
 
- 
+ .link:hover{
+color: #209851;
+ }
+.titulo{
+    margin-top: 56px;
+}
+/* RESPONSIVIDADE */
+
+@media (max-width: 970px){
+    .dev-container{
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
