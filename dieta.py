@@ -57,11 +57,11 @@ def login():
         resultado = cur.fetchone()
 
         if resultado:
-            session['logged_in'] = True  # Definir a sessão como logada
-            session['username'] = usuario  # Armazenar o nome de usuário na sessão
+            session['logged_in'] = True
+            session['username'] = usuario
             cur.close()
             conexao.close()
-            return redirect(url_for('perfil'))  # Redirecionar para a página de perfil
+            return redirect(url_for('perfil'))
         else:
             mensagem = "Usuário ou Senha incorreta. Tente novamente."
             return render_template('login.html', mensagem=mensagem)
@@ -94,12 +94,12 @@ def obter_dados_do_usuario(username):
 def perfil():
     if 'logged_in' in session:
         username = session['username']
-        dados_usuario = obter_dados_do_usuario(username)  # Obter os dados do usuário logado
+        dados_usuario = obter_dados_do_usuario(username) 
 
         if dados_usuario:
             return render_template('perfil.html', dados_usuario=dados_usuario)
         else:
-            return "Usuário não encontrado no banco de dados"  # Tratamento de erro, caso necessário
+            return "Usuário não encontrado no banco de dados"
     else:
         return redirect(url_for('login'))
     
@@ -164,13 +164,13 @@ def calcular_imc():
         username = session['username']
         imc = None
         resultado = None
-        imc_formatado = None  # Inicialize a variável aqui
+        imc_formatado = None
 
         if request.method == 'POST':
             altura = float(request.form['altura'])
             peso = float(request.form['peso'])
             imc = peso / (altura * altura)
-            imc_formatado = round(imc, 2)  # Atribua um valor aqui
+            imc_formatado = round(imc, 2) 
 
             if imc <= 18.5:
                 resultado = "Você está abaixo do peso."
@@ -189,6 +189,11 @@ def calcular_imc():
 
     else:
         return redirect(url_for('login'))
+    
+@app.route('/logout')
+def logout():
+    session.clear()
+    return redirect(url_for('login'))
 
 def obter_dieta(tipo_dieta):
     conexao = conectar_banco()
