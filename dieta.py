@@ -129,7 +129,27 @@ def atualizar_perfil():
         return redirect(url_for('perfil'))
     else:
         return redirect(url_for('login'))
-    
+
+@app.route('/excluir_perfil', methods=['POST'])
+def excluir_perfil():
+    if 'logged_in' in session:
+        conexao = conectar_banco()
+        cur = conexao.cursor()
+
+        username = session['username']
+
+        cur.execute("DELETE FROM cliente WHERE usuario = %s;", (username,))
+        conexao.commit()
+
+        cur.close()
+        conexao.close()
+
+        
+        session.clear()
+        
+        return redirect(url_for('login'))  
+
+    return redirect(url_for('login')) 
 
 @app.route('/sobre')
 def sobre():

@@ -44,14 +44,11 @@ header{
     background-color: #EFEBE3;
 }
 
-.opcao p {
-margin-bottom: 20px;
+.dados{
+    padding: 10px;
 }
-
-.opcao2 p {
-    margin-bottom: 24px;
-    text-align: center;
-    margin-top: 30px;
+.dados p{
+    padding-top: 10px;
 }
 
 .formulario{
@@ -73,15 +70,21 @@ text-align: center;
 .principal img{
     border-radius: 4px;
 }
-.opcao p {
-text-align: center;
-}
+
 .opcao{
     margin-top: 20px;
 }
-.opcao input{
-    margin: 10px;
+
+
+.delete p {
+    color: rgb(105, 0, 0);  
+    border-bottom: 2px solid red; /* Defina a largura desejada para a borda */
+    display: inline-block; /* Isso faz com que a borda apenas envolva o conteúdo do parágrafo */
+    padding-bottom: 5px; /* Adiciona algum espaço abaixo do texto */
+    cursor: pointer;
 }
+
+
 
 
 footer{
