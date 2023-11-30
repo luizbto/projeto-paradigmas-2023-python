@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../static/imc.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMC</title>
+</head>
+<body>
+    <header>
+        <ul class="lista">
+            <div class="pags">
+              <li>
+                <a href="/imc">IMC</a></li>
+              </li> 
+            <li>
+              <a href="/sobre">Sobre</a>
+            </li>
+            <li>  
+              <a href="/perfil"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/></svg></a></li>
+        </ul>   
+    </header>
+
+    <main class="principal">
+      <h1>Calculadora de IMC</h1>
+    <form  class="formulario" method="POST" action="/imc">
+        Altura (metros): <br><input type="number" step="0.01" name="altura" required><br>
+        Peso (quilogramas): <br><input type="number" step="0.1" name="peso" required><br>
+        <div class="buttonInput">
+        <input type="submit" value="Calcular">
+      </div>
+      {% if imc is not none %}
+      <h2>Seu IMC é: {{ "%.2f"|format(imc) }}</h2>
+      <p>{{ resultado }}</p>
+        {% endif %}
+  
+    </form>
+
+    <table class="tableIMC">
+      <tr>
+          <th>IMC</th>
+          <th>Classificação</th>
+      </tr>
+      <tr>
+          <td>Menor ou igual a 18.5</td>
+          <td>Você está abaixo do peso</td>
+      </tr>
+      <tr>
+          <td>Entre 18.6 e 24.9</td>
+          <td>Você está no peso ideal</td>
+      </tr>
+      <tr>
+          <td>Entre 25 e 29.9</td>
+          <td>Você está levemente acima do peso</td>
+      </tr>
+      <tr>
+          <td>Entre 30 e 34.9</td>
+          <td>Você está com Obesidade grau 1</td>
+      </tr>
+      <tr>
+          <td>Entre 35 e 39.9</td>
+          <td>Você está com Obesidade grau 2</td>
+      </tr>
+      <tr>
+          <td>Maior ou igual a 40</td>
+          <td>Você está com Obesidade grau 3</td>
+      </tr>
+  </table>
+    </main>
+    <footer>
+      <h2>TODOS OS DIREITOS RESERVADOS | © NUTRI_DEV 2023 </h2>
+    </footer>
+</body>
+</html>

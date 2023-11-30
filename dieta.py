@@ -1,7 +1,6 @@
 import psycopg2
 import pandas as pd
 from flask import Flask, render_template, request, session, redirect, url_for
-import os
 
 def conectar_banco():
     conexao = psycopg2.connect(
@@ -155,24 +154,42 @@ def excluir_perfil():
 def sobre():
     return render_template('sobre.html')
 
-@app.route('/imc')    
-def obter_imc():
-   altura = float(input("Digite sua altura: "))
-   peso = float(input("Digite seu peso: "))
-   imc = peso / (altura * altura)
-   if (imc <= 18.5):
-       print("Você esta abaixo do peso")
-   elif (imc <= 24.9):
-       print("Você esta no peso ideal")
-   elif (imc <= 29.9):
-       print("Você esta levemente acima do peso")
-   elif(imc <= 34.9): 
-       print("Você esta com Obesidade grau 1")
-   elif(imc <= 39.9):
-       print("Você esta com Obesidade grau 2")
-   elif(imc > 40):
-       print("Você esta com Obesidade grau 3")
-    
+
+@app.route('/imc', methods=['GET', 'POST'])
+def calcular_imc():
+    if 'logged_in' in session:
+        conexao = conectar_banco()
+        cur = conexao.cursor()
+
+        username = session['username']
+        imc = None
+        resultado = None
+        imc_formatado = None  # Inicialize a variável aqui
+
+        if request.method == 'POST':
+            altura = float(request.form['altura'])
+            peso = float(request.form['peso'])
+            imc = peso / (altura * altura)
+            imc_formatado = round(imc, 2)  # Atribua um valor aqui
+
+            if imc <= 18.5:
+                resultado = "Você está abaixo do peso."
+            elif imc <= 24.9:
+                resultado = "Você está no peso ideal."
+            elif imc <= 29.9:
+                resultado = "Você está levemente acima do peso."
+            elif imc <= 34.9:
+                resultado = "Você está com Obesidade grau 1."
+            elif imc <= 39.9:
+                resultado = "Você está com Obesidade grau 2."
+            else:
+                resultado = "Você está com Obesidade grau 3."
+
+        return render_template('calcular_imc.html', imc=imc_formatado, resultado=resultado)
+
+    else:
+        return redirect(url_for('login'))
+
 def obter_dieta(tipo_dieta):
     conexao = conectar_banco()
     if conexao:
@@ -194,43 +211,5 @@ def obter_dieta(tipo_dieta):
             print(dieta)
         conexao.close()
 
-
-while True:
-    if __name__ == "__main__":
-        app.run(debug=True)
-        print('Seja Bem-Vindo a Nutri_Dev. Escolha a opção que Deseja')
-        print('1. Dieta para emagrecer \n'
-            '2. Dieta para ganho de massa \n'
-            '3. Dieta para se alimentar melhor\n'
-            '4. Consultar IMC\n'
-            '5. Fazer login\n'  
-            '6. Realizar Cadastro\n'
-            '7. Sair do Sistema'
-            )
-        option = input()
-        if (option == "4"): 
-            obter_imc()
-            continuar = input("Deseja continuar? (SIM ou NAO) ").upper()
-            if continuar != "SIM":
-                break
-        elif(option == "5"):
-            login()
-            continuar = input("Deseja continuar? (SIM ou NAO) ").upper()
-            if continuar != "SIM":
-                break
-        elif(option == "6"):
-            insert_bd()
-            continuar = input("Deseja continuar? (SIM ou NAO) ").upper()
-            if continuar != "SIM":
-                break
-        elif(option == "7"):
-            print("Saindo do sistema!")
-            break
-        elif option in ["1", "2", "3"]:
-            obter_dieta(option)
-            continuar = input("Deseja continuar? (SIM ou NAO) ").upper()
-            if continuar != "SIM":
-                break
-        
-
-print("Sistema encerrado.")
+if __name__ == '__main__':
+    app.run(debug=True)

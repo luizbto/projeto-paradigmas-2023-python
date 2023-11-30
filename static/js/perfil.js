@@ -1,3 +1,5 @@
+//Modal att
+
 $(document).ready(function() {
     $('#confirmUpdateBtn').click(function(event) {
         event.preventDefault();
@@ -19,6 +21,8 @@ $(document).ready(function() {
         }
     });
 });
+
+//Modal delete
 
 const deleteProfileBtn = document.querySelector('.delete');
 const confirmDeleteModal = document.getElementById('confirmDeleteModal');

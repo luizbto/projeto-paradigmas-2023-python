@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap');
+
+/* aplica para todos */
+*{
+    padding: 0px;
+    margin:0px;
+    font-family: 'Inter', sans-serif;
+}
+body{
+    background-color: #EFEBE3;
+}
+header{
+    background: linear-gradient(#4DA768,#209851);
+   padding: 25px;
+}
+ 
+
+
+.lista{
+    display: flex;
+    list-style: none;
+    justify-content: flex-end;
+    padding-right: 100px;
+   
+}
+.lista a{
+    text-decoration: none;
+    margin-left: 70px;
+    font-weight: 900;
+    color: #000;
+}
+.pags{
+    display: flex;
+    
+}
+
+.principal{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    padding-top: 50px;
+    width: 100%;
+    height: 80%;
+    justify-content: center;
+    background-color: #EFEBE3;
+}
+
+.principal h1{
+    padding-bottom: 30px;
+}
+
+
+.formulario {
+    border: 2px solid darkgreen;
+    text-align: center;
+    background: linear-gradient(#4DA768,#209851);
+    padding: 30px;
+    height: 10%; /* Altere a altura conforme necessário */
+    border-radius: 4px;
+}
+
+.buttonInput {
+    width: 40%; /* Tamanho fixo do botão */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.formulario input {
+    text-align: center;
+    font-weight: 1000;
+    border-radius: 5px;
+    padding: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 50%;
+}
+
+table {
+    border-collapse: collapse;
+    width: 50%;
+    margin: 20px auto;
+    padding-top: 20px; 
+}
+
+th, td {
+    border: 2px solid black;
+    text-align: left;
+    padding: 8px;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+
+footer{
+    background-color: #EFEBE3;
+    text-align: center;
+    padding-top: 100px; 
+}
+    
+    
+footer h2{
+    color: #000;
+    font-size: 16px;
+}
