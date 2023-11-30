@@ -91,3 +91,21 @@ padding-top: 20px;
     text-decoration: none;
     color: rgb(104, 61, 61);
 }
+
+/* tudo o que mudou */
+.loginhook a{
+ color: white;
+}
+body{
+    background-color: #EFEBE3;
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 1350px){
+    .img  {
+          display: none;   
+         
+    } 
+    
+}
