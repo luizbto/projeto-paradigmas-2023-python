@@ -27,8 +27,8 @@
 }
 
 .left-login>h1 {
-    width: 50vw;
-    height: 50vh;
+    width: 100%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -140,4 +140,12 @@
     font-weight: 700;
     color: red;
     padding: 10px;
+}
+@media (max-width: 768px){ /*responsividade*/
+    .img {
+           display: none;    
+    }
+    .left-login{
+        display: none;
+    }
 }
