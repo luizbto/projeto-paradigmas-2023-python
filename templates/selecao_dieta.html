@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Seleção de Dieta</title>
+</head>
+
+<body>
+    <h1>Selecione a Dieta:</h1>
+
+    <form action="/mostrar_dieta" method="POST">
+        <select name="tipo_dieta">
+            <option value="1">Dieta para Emagrecer</option>
+            <option value="2">Dieta para Ganho de Massa</option>
+            <option value="3">Dieta Saudável</option>
+        </select>
+        <input type="submit" value="Ver Dieta">
+    </form>
+
+    <div id="dieta_exibida">
+        {% if dieta %}
+            <h2>Dieta Selecionada:</h2>
+            {{ dieta | safe }}
+        {% endif %}
+    </div>
+</body>
+
+</html>

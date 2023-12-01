@@ -198,6 +198,8 @@ def logout():
 def obter_dieta(tipo_dieta):
     conexao = conectar_banco()
     if conexao:
+        cursor = conexao.cursor()
+
         tabela = None
         if tipo_dieta == '1':
             print("Selecionando a Dieta para emagrecer")
@@ -205,16 +207,31 @@ def obter_dieta(tipo_dieta):
         elif tipo_dieta == '2':
             print("Selecionando a Dieta para ganho de massa")
             tabela = 'ganho_massa'
-
         elif tipo_dieta == '3':
             tabela = 'saudavel'
             print("Selecionando a Dieta saudável")
         else:
             print("Opção Inválida!")
+
         if tabela:
-            dieta = pd.read_sql(f'SELECT * FROM {tabela}', conexao)
-            print(dieta)
-        conexao.close()
+            cursor.execute(f'SELECT * FROM {tabela}')
+            colunas = [desc[0] for desc in cursor.description]
+            dados = cursor.fetchall()
+            dieta = pd.DataFrame(dados, columns=colunas)
+            conexao.close()
+            return dieta.to_html(index=False)  
+
+
+@app.route('/selecao_dieta')
+def pagina_dieta():
+    return render_template('selecao_dieta.html')
+
+@app.route('/mostrar_dieta', methods=['POST'])
+def mostrar_dieta():
+    tipo_dieta = request.form['tipo_dieta']
+    dieta = obter_dieta(tipo_dieta)
+
+    return render_template('selecao_dieta.html', dieta=dieta)
 
 if __name__ == '__main__':
     app.run(debug=True)
