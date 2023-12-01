@@ -2,6 +2,8 @@ import psycopg2
 import pandas as pd
 from flask import Flask, render_template, request, session, redirect, url_for
 
+
+
 def conectar_banco():
     conexao = psycopg2.connect(
         database="ProgramPython",
@@ -202,25 +204,23 @@ def obter_dieta(tipo_dieta):
 
         tabela = None
         if tipo_dieta == '1':
-            print("Selecionando a Dieta para emagrecer")
-            tabela = 'emagrecer'
+            tabela = 'Emagrecer'
         elif tipo_dieta == '2':
-            print("Selecionando a Dieta para ganho de massa")
-            tabela = 'ganho_massa'
+            tabela = 'Ganho de Massa'
         elif tipo_dieta == '3':
-            tabela = 'saudavel'
-            print("Selecionando a Dieta saudável")
+            tabela = 'Saudável'
         else:
-            print("Opção Inválida!")
+            return None  # Retorna None se o tipo de dieta for inválido
 
         if tabela:
-            cursor.execute(f'SELECT * FROM {tabela}')
+            cursor.execute("SELECT id_dieta AS id, tipo_dieta AS \"Tipo de Dieta\", cafe_manha AS \"Café da Manhã\", lanche_manha AS \"Lanche da Manhã\", almoço AS \"Almoco\", lanche_tarde AS \"Lanche da Tarde\", janta AS \"Jantar\", ceia AS \"Ceia\" FROM dietas WHERE tipo_dieta = %s", (tabela,))
             colunas = [desc[0] for desc in cursor.description]
             dados = cursor.fetchall()
             dieta = pd.DataFrame(dados, columns=colunas)
             conexao.close()
-            return dieta.to_html(index=False)  
+            return dieta.to_html(index=False)
 
+    return None
 
 @app.route('/selecao_dieta')
 def pagina_dieta():
@@ -229,9 +229,8 @@ def pagina_dieta():
 @app.route('/mostrar_dieta', methods=['POST'])
 def mostrar_dieta():
     tipo_dieta = request.form['tipo_dieta']
+
     dieta = obter_dieta(tipo_dieta)
-
     return render_template('selecao_dieta.html', dieta=dieta)
-
 if __name__ == '__main__':
     app.run(debug=True)

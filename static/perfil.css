@@ -79,7 +79,7 @@ header{
 .formulario{
     background: linear-gradient(#4DA768,#209851);
 padding: 20px;
-/* width: 20%; */
+width: 20%;
 border-radius: 4px;
 text-align: center;
 }

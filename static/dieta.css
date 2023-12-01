@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap');
+
+/* aplica para todos */
+*{
+    padding: 0px;
+    margin:0px;
+    font-family: 'Inter', sans-serif;
+}
+body{
+    background-color: #EFEBE3;
+}
+header{
+    background: linear-gradient(#4DA768,#209851);
+   padding: 25px;
+}
+ 
+
+
+.lista{
+    display: flex;
+    list-style: none;
+    justify-content: flex-end;
+    padding-right: 100px;
+   
+}
+.lista a{
+    text-decoration: none;
+    margin-left: 70px;
+    font-weight: 900;
+    color: #000;
+}
+.pags{
+    display: flex;
+    
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 190px;
+    padding: 10px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a{
+    display: block;
+    margin-top: 10px;
+}
+.show {
+    display: block;
+}
+.profile-icon {
+    margin-right: 10px;
+}
+
+/* estilos.css */
+#dieta_exibida {
+    font-family: Arial, sans-serif;
+    margin-top: 20px;
+    overflow-x: auto;
+}
+
+#dieta_exibida h2 {
+    color: #333;
+}
+
+#dieta_exibida table {
+    border-collapse: collapse;
+    width: 100%;
+    word-wrap: break-word;
+    
+}
+
+#dieta_exibida th {
+    background-color: #f2f2f2;
+    text-align: left;
+    padding: 8px;
+    word-wrap: break-word;
+}
+
+#dieta_exibida td {
+    border: 1px solid black;
+    padding: 8px;
+    word-wrap: break-word;
+}
+.principal{
+    text-align: center;
+    width: auto;
+    padding: 160px;
+    background-color: #EFEBE3;
+}
